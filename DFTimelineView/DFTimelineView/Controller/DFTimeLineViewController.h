@@ -24,6 +24,9 @@
 //根据ID删除
 -(void) deleteItem:(long long) itemId;
 
+//删除全部
+-(void) deleteAll;
+
 //赞
 -(void) addLikeItem:(DFLineLikeItem *) likeItem itemId:(long long) itemId;
 

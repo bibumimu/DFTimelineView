@@ -304,6 +304,11 @@
     [_itemDic removeObjectForKey:[NSNumber numberWithLongLong:item.itemId]];
 }
 
+-(void)deleteAll{
+    [_items removeAllObjects];
+    [_items removeAllObjects];
+}
+
 -(DFBaseLineItem *) getItem:(long long) itemId
 {
     return [_itemDic objectForKey:[NSNumber numberWithLongLong:itemId]];
