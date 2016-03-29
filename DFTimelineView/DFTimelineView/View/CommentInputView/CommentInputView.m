@@ -184,7 +184,7 @@
     _keyboardAnimationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     _keyboardAnimationCurve = [[info objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
-    [self changeInputViewOffsetY:(frame.origin.y - InputViewHeight) ];
+    [self changeInputViewOffsetY:(frame.origin.y - InputViewHeight-64) ];
     
 }
 
