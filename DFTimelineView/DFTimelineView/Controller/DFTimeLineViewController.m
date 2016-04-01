@@ -532,17 +532,25 @@
     
 }
 
-#pragma mark - DFVideoCaptureControllerDelegate
--(void)onCaptureVideo:(NSString *)filePath screenShot:(UIImage *)screenShot
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self onSendVideo:@"" videoPath:filePath screenShot:screenShot];
-    });
-}
-
 -(void)onSendVideo:(NSString *)text videoPath:(NSString *)videoPath screenShot:(UIImage *)screenShot
 {
     
 }
+
+#pragma mark - DFVideoCaptureControllerDelegate
+-(void)onCaptureVideo:(NSString *)filePath screenShot:(UIImage *)screenShot
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        DFImagesSendViewController *controller = [[DFImagesSendViewController alloc] initWithImages:nil];
+        controller.delegate = self;
+        controller.videoPath = filePath;
+        controller.screenShot = screenShot;
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self presentViewController:navController animated:YES completion:nil];
+        
+    });
+}
+
 
 @end

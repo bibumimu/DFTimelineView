@@ -147,7 +147,9 @@
 
 -(void) send
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(onSendTextImage:images:)]) {
+    if (_delegate && _videoPath && [_delegate respondsToSelector:@selector(onSendVideo:videoPath:screenShot:)]) {
+        [_delegate onSendVideo:_contentView.text videoPath:_videoPath screenShot:_screenShot];
+    } else if (_delegate && [_delegate respondsToSelector:@selector(onSendTextImage:images:)]) {
         
         [_images removeLastObject];
         [_delegate onSendTextImage:_contentView.text images:_images];

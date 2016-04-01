@@ -14,9 +14,14 @@
 
 -(void) onSendTextImage:(NSString *) text images:(NSArray *)images;
 
+-(void) onSendVideo:(NSString *)text videoPath:(NSString *)videoPath screenShot:(UIImage *)screenShot;
 
 @end
+
 @interface DFImagesSendViewController : DFBaseViewController
+
+@property (nonatomic, strong)NSString *videoPath;
+@property (nonatomic, strong)UIImage *screenShot;
 
 @property (nonatomic, weak) id<DFImagesSendViewControllerDelegate> delegate;
 
